@@ -53,7 +53,7 @@ int get_value(string a,map<int, string> m,int v)
 }
 int main()
 {
-	cout<<"Enter number of vertices in array : - ";             // Name of vertex are namely 0,1,2,3,4.... for simplicity !!
+	cout<<"Enter number of vertices in array : - ";             
 	int v=3;
 	cin>>v;
 	map<int, string> m;
