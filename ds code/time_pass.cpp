@@ -1,64 +1,76 @@
 #include<iostream>
+#include<map>
+#include<list>
+#include<queue>
 using namespace std;
 
-int main(){
-	int n;
-	cout<<"Enter number of nodes:\n";
-	cin>>n;
-	char node[n];
-	int status[n];
-	cout<<"Enter nodes name:\n";
-	for(int i=0;i<n;i++){
-	    cin>>node[i];
-	    status[i]=1;
-	}
-	for(int i=0;i<n;i++){
-	    cout<<node[i]<<" status: "<<status[i]<<"\n";
-	}
-	char temp[n],final[n],top=0;
-	cout<<"Enter root node:\n";
-	char r;
-	cin>>r;
-	temp[0]=r;
-	for(int i=0;i<n;i++){
-		if(r==node[i]){
-			status[i]=2;
-		}
-	}
-	top++;
-	int i=0;
-	while(top!=0){
-		final[i]=temp[top-1];
-		top--;
-		int m;
-		cout<<"Enter number of adjacent sides of "<<final[i]<<":\n";
-		cin>>m;
-		for(int j=0;j<m;j++){
-			char q;
-			cin>>q;
-			int flag1=0,flag2=0,l=0,p=0;
-            while(l<top){
-            	if(q==temp[l]){
-            		flag1++;
-				}
-				l++;
-			}
-			while(p<i){
-            	if(q==final[p]){
-            		flag2++;
-				}
-				p++;
-			}
-			if((flag1==0)&&(flag2==0)){
-				temp[top]=q;
-				top++;
-			}
+class Graph{
+map<char,list<char>> g;
+public:
+Graph(){
+}
+  void ins(char b){
+  cout<<"Enter number of  edges of "<<b<<":\n";
+    int m;
+    char e;
+    cin>>m;
+    cout<<"Enter adjacent vertices:\n";
+    for(int i=0;i<m;i++){
+      cin>>e;
+      g[b].push_back(e);
+    }
+  }
 
-		}
-		i++;
+  void bfst(char bfs){
+    map<char,bool> temp;
+    queue<char> q;
+    q.push(bfs);
+    temp[bfs]= true;
+    while(!q.empty()){
+      char t= q.front();
+      cout<<t<<" ";
+      q.pop();
+      for(int neigbour :g[t]){
+          if(!temp[neigbour]){
+            q.push(neigbour);
+            temp[neigbour] = true;
+          }
+      }
+    }
+  }
+  void print(){
+
+
+      for(auto key:g){
+        cout<<key.first<<"->";
+        for(auto value:key.second){
+          cout<<value<<"  ";
+        }
+        cout<<"*end*\n";
+      }
+    }
+
+};
+int main(){
+  Graph r;
+
+	int n;
+	cout<<"Enter number of vertices:\n";
+	cin>>n;
+	char b;
+
+	for(int i=0;i<n;i++){
+    cout<<"Enter vertex";
+		cin>>b;
+    r.ins(b);
 	}
-	for(int u=0;u<i;u++){
-		cout<<final[u]<<" ";
-	}
+  cout<<"Adjency list of graph is:\n";
+  r.print();
+	cout<<"Enter root node:\n";
+  char bfs;
+  cin>>bfs;
+  cout<<"bfs is traversal is:\n";
+   r.bfst(bfs);
+   return 0;
 
 }
