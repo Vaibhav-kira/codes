@@ -53,8 +53,8 @@ int get_value(string a,map<int, string> m,int v)
 }
 int main()
 {
-	cout<<"Enter number of vertices in array : - ";             
-	int v=3;
+	cout<<"Enter number of vertices in array : - ";
+	int v;
 	cin>>v;
 	map<int, string> m;
     cout<<"Enter name of nodes "<<endl;
@@ -80,9 +80,9 @@ int main()
 	cout<<"Enter root node for BFS";
 	string root;
 	cin>>root;
-	cout<<"BFS of the following graph is : - ";
+	cout<<endl<<"BFS of the following graph is : - ";
 	BFS(li,v,get_value(root,m,v),m);
-	cout<<"Original graph is as follows : - "<<endl;
+	cout<<endl<<"Original graph is as follows : - "<<endl;
 	print_graph(li,v,m);
 }
 
