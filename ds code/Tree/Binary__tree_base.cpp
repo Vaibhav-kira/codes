@@ -20,10 +20,7 @@ class Node
 };
 int main()
 {
-	Node* root = new Node(5);
-	root->right = new Node(10);
-	root->left = new Node(6);
-	root->right->right = new Node(2);
+	Node* root = new Node();
 	return 0;
 }
 

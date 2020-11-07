@@ -21,7 +21,7 @@ void print_graph(vector<int> li[],int v,map<int, string> m)
 }
 void BFS(vector<int> li[],int v,int root,map<int, string> m)
 {
-    bool b[v+1];
+    bool b[v];
     for(int i=0;i<v;i++)
         b[i]=false;
     b[root]=true;
