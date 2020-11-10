@@ -1,6 +1,11 @@
 package learning;
 
-class Pen
+abstract class Writer             // no error as we are not creating object of Writer it is only used for reference .... 
+{
+	abstract public void write();  
+}
+
+class Pen extends Writer
 {
 	public void write()
 	{
@@ -8,17 +13,17 @@ class Pen
 	}
 }
 
-class Pencil
+class Pencil extends Writer
 {
 	public void write()
 	{
-		System.out.println("I am a pen");
+		System.out.println("I am a pencil");
 	}
 }
 
 class Kit
 {
-	public void doSomething(Pen p)
+	public void doSomething(Writer p)
 	{
 		p.write();
 	}
@@ -30,11 +35,13 @@ public class InterfaceDemo {
 		
 		Kit k = new Kit();
 		
-		Pen p = new Pen();
+		Writer p = new Pen();
 		
-		Pencil pe = new Pencil();
+		Writer pe = new Pencil();
 		
 		k.doSomething(p);
+		
+		k.doSomething(pe); // it now works as super class is as argument and reference used in p and pe is of super class 
 		
 		// k.doSomething(pe); error as no method which has a Pencil as a argument....	
 
