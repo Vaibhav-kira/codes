@@ -65,9 +65,9 @@ int main()
 	for(i=0;i<e;i++)
 	{
 	    string a,b;
-		cout<<"Enter the  vertices through which you wand to add edge  : -  ";  //             A --------- B
+		cout<<"Enter the  vertices through which you wand to add edge  : -  ";  //             A --------- D
 		cin>>a;                                                                 //             |           |
-		cin>>b;                                                                 //             D-----------C
+		cin>>b;                                                                 //             B-----------C
 		add_edge(li,get_value(a,m,v),get_value(b,m,v));                         //             |
 	}                                                                           //             E-----------F
 	cout<<"Enter root node for BFS";
