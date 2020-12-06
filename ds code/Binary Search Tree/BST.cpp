@@ -100,7 +100,7 @@ public:
         return false;
 	}
 
-	void deleting(data)
+	void deleting(int data)
 	{
 	    Node* temp = root;
 	    while(temp!=nullptr)
@@ -128,7 +128,7 @@ int main()
     cin>>n;
     for(int i=0;i<n;i++)                            /*                 21                                  */
     {                                               /*                /    \                               */
-        cout<<"Enter the data to be inserted"<<endl;/*              16     19                              */
+        cout<<"Enter the data to be inserted"<<endl;/*              16     29                              */
 	    cin>>data;                                  /*             /   \   /  \                            */
         b.addElement(data);                         /*            11   19 23   90                          */
     }
