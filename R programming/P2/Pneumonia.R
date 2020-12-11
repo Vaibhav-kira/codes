@@ -4,6 +4,6 @@ out[, (23) := lapply(.SD, as.numeric), .SDcols = (23)]
 out[, lapply(.SD
              , hist
              , xlab= "Deaths"
-             , main = "Hospital 30-Day Death (Mortality) Rates from heart failure"
+             , main = "Hospital 30-Day Death (Mortality) Rates from Pneumonia"
              , col="red")
     , .SDcols = (23)]
